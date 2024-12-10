@@ -1,0 +1,242 @@
+<html>
+
+<head>
+  <base href="/">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #ccc;
+      margin: 20px;
+      border: 3px solid var(--secondary);
+      animation: float 3s ease-in-out infinite;
+
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    .intro {
+      margin-left: 20px;
+    }
+
+    .section {
+      margin: 40px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: slideIn 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 20px;
+      background: var(--light);
+      border-radius: 5px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+
+  
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .contact a {
+      color: var(--secondary);
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid var(--secondary);
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .contact a:hover {
+      background: var(--secondary);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="https://i.postimg.cc/XJyRKsfP/MY-FACE.jpg" alt="Foto de perfil de Nelio F. Mondlane"
+        class="profile-pic" />
+      <div class="intro">
+        <h1>Nelio F. Mondlane</h1>
+        <p>Estudante de Informática & Desenvolvedor</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Sobre Mim</h2>
+      <p>Sou um estudante de tecnologia de informacao, com foco em desenvolvimento web e sistemas embarcados. Busco
+        constantemente aprender novas tecnologias e aplicá-las em projetos inovadores have a good Day.</p>
+    </section>
+
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Arduino</h3>
+          <p>Programação de microcontroladores e projetos de robótica</p>
+        </div>
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <p>Desenvolvimento web front-end e back-end</p>
+        </div>
+        <div class="skill-card">
+          <h3>React.js</h3>
+          <p>Criação de interfaces modernas e responsivas</p>
+        </div>
+        <div class="skill-card">
+          <h3>CSS</h3>
+          <p>Estilização e animações web</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projetos</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Oculos com sensores para pessoas com deficiencia visual</h3>
+          <p>Desenvolvimento de oculos com sensores de proximidade de objeto, feito com arduino e sensores acoplados.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Sistema de Monitoramento IoT</h3>
+          <p>Criação de um sistema de monitoramento ambiental utilizando sensores e comunicação WiFi.</p>
+        </div>
+        <div class="project-card">
+          <h3>Aplicação Web React</h3>
+          <p>Dashboard para visualização de dados em tempo real com React.js</p>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <section class="section">
+      <h2>Contato</h2>
+      <div class="contact">
+        <a href="neliomondlane002@gmail.com">Email</a>
+        <a href="https://wa.me/+258844441625">WhatsApp</a>
+        <a href="https://linkedin.com/in/Nelio Mondlane">LinkedIn</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Animação de entrada das seções
+    const sections = document.querySelectorAll('.section');
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'slideIn 0.5s forwards';
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+
+  
+
+  </script>
+</body>
+
+</html>
